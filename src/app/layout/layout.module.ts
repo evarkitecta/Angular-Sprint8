@@ -19,8 +19,8 @@ import { FooterComponent } from './components/footer/footer.component';
     RouterModule
   ],
   exports: [
-    HeaderComponent,
-    FooterComponent
+    // HeaderComponent,
+    // FooterComponent
   ]
 })
 export class LayoutModule { }

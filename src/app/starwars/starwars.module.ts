@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './pages/home/home.component';
+import { HomePageComponent } from './pages/home/home-page.component';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomePageComponent
   ],
   imports: [
     CommonModule

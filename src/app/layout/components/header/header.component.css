@@ -2,9 +2,14 @@
 #layout-header{
   width: 100%;
   height: 20vh;
-  /* position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; */
+  z-index: 999;
+
+
 }
 
+#layout-header p{
+  word-wrap: break-word;
+}
