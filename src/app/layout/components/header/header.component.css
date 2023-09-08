@@ -1,15 +1,13 @@
-
-#layout-header{
+.layout-header{
   width: 100%;
-  height: 20vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-
-
+  /* Poner una altura mínima en px (no relativas a la pantalla) para que no se haga más pequeño el header que el contenido que contiene provocando que se desborde el texto o bien utilizar keyframes para adaptar las medidas en función del tamaño de la pantalla */
+  min-height: 150px;
+  height: 100%;
 }
-
-#layout-header p{
+/* Cuando una palabra sea muy larga y queramos que se adapte al ancho del contenedor div y no se salga y/o genere barras horizontales */
+/* #layout-header p{
   word-wrap: break-word;
-}
+} */
+
+
+
