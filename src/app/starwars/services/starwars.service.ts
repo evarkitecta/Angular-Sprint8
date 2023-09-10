@@ -19,7 +19,23 @@ export class StarwarsService {
       .get<StarshipsResponse>(`https://swapi.dev/api/starships`)
       .subscribe(resp => {
         this._starships.push(...resp.results);
+        // resp.results[i].url
         console.log(resp.results)
       })
   }
+
+  cogerImagen() {
+    this._starships
+  }
+
+  // getIDStarships(id: number): string {
+
+  //   return starship[0].url
+  // }
+  getImageStarship(starship: string): string {
+
+    return `https://starwars-visualguide.com/assets/img/starships/${starship}.jpg`
+  }
+
+
 }

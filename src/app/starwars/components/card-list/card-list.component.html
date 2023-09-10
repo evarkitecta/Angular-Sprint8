@@ -1,8 +1,9 @@
 <div class="row bg-success d-flex justify-content-center align-items-center">
-  <div *ngFor="let starship of starships" class="col-md-2 col-sm-3 m-2">
+  <div *ngFor="let starship of starships; let i=index" class="col-md-2 col-sm-3 m-2">
 
     <div class="card mb-2 text-center bg-dark">
-      <!-- TODO Crear imagen -->
+      <img [src]="getImageStarship(i)"
+        onerror="this.src=`https://starwars-visualguide.com/assets/img/big-placeholder.jpg`" class="card-img-top">
 
       <div class="card-body text-white">
         <p class="card-text">{{starship.name | uppercase}}</p>

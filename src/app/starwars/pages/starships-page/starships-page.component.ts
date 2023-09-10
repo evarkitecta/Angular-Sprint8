@@ -16,6 +16,6 @@ export class StarshipsPageComponent {
     return this.starwarsService.starships;
   }
 
-  public starshipsPage: Starships[] = this.starships;
+
 
 }

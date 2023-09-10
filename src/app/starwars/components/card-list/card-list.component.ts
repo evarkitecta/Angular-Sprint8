@@ -9,5 +9,11 @@ import { Starships } from '../../interfaces/starships.interfaces';
 export class CardListComponent {
   @Input()
   public starships: Starships[] = [];
+  // public starshipID!: number;
+  constructor() { }
+  getImageStarship(index: number): string {
+    const starshipID = this.starships[index].url.replace(/[^0-9]+/g, '');
+    return `https://starwars-visualguide.com/assets/img/starships/${starshipID}.jpg`
+  }
 
 }
