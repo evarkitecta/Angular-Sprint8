@@ -1,0 +1,16 @@
+<div class="row bg-success d-flex justify-content-center align-items-center">
+  <div *ngFor="let starship of starships" class="col-md-2 col-sm-3 m-2">
+
+    <div class="card mb-2 text-center bg-dark">
+      <!-- TODO Crear imagen -->
+
+      <div class="card-body text-white">
+        <p class="card-text">{{starship.name | uppercase}}</p>
+        <p class="card-text text-success">{{starship.model}}</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
