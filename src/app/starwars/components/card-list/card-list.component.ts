@@ -16,4 +16,7 @@ export class CardListComponent {
     return `https://starwars-visualguide.com/assets/img/starships/${starshipID}.jpg`
   }
 
+
+
+
 }

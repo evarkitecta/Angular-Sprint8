@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainPageComponent } from './layout/pages/main-page/main-page.component';
 import { HomePageComponent } from './starwars/pages/home/home-page.component';
 import { StarshipsPageComponent } from './starwars/pages/starships-page/starships-page.component';
+import { StarshipCardPageComponent } from './starwars/pages/starship-card-page/starship-card-page.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,12 @@ const routes: Routes = [
       {
         path: 'starships',
         component: StarshipsPageComponent,
+        pathMatch: 'full',
+      },
+      {
+        path: 'starships/:id',
+        component: StarshipCardPageComponent,
+        pathMatch: 'full',
       },
 
       {

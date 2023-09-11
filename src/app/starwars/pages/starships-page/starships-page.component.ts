@@ -3,7 +3,7 @@ import { StarwarsService } from '../../services/starwars.service';
 import { Starships, StarshipsResponse } from '../../interfaces/starships.interfaces';
 
 @Component({
-  selector: 'app-starships-page',
+  selector: 'starwars-starships-page',
   templateUrl: './starships-page.component.html',
   styleUrls: ['./starships-page.component.css']
 })
