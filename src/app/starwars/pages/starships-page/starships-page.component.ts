@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StarwarsService } from '../../services/starwars.service';
 import { Starships, StarshipsResponse } from '../../interfaces/starships.interfaces';
 
@@ -7,15 +7,21 @@ import { Starships, StarshipsResponse } from '../../interfaces/starships.interfa
   templateUrl: './starships-page.component.html',
   styleUrls: ['./starships-page.component.css']
 })
-export class StarshipsPageComponent {
+export class StarshipsPageComponent implements OnInit {
 
-  constructor(private starwarsService: StarwarsService) {
-    this.starwarsService.callAPIStarships();
+  ngOnInit(): void {
+    this.starwarsService.callAPI();
   }
+  constructor(private starwarsService: StarwarsService) {
+
+  }
+
   get starships(): Starships[] {
     return this.starwarsService.starships;
   }
 
+  // rootToShowStarship(starship: Starships): void {
 
+  // }
 
 }

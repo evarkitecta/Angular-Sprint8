@@ -9,12 +9,18 @@ import { Starships, StarshipsResponse } from '../interfaces/starships.interfaces
 export class StarwarsService {
   private _starships: Starships[] = [];
   public page: number = 1;
-
+  // private firstCallAPI: boolean = false;
   constructor(private http: HttpClient) { }
   get starships() {
     return [...this._starships];
   }
-  callAPIStarships(): void {
+  callAPI(): void {
+    if (this._starships.length !== 0) return
+    this.callAPIStarships();
+    // this.firstCallAPI = true;
+
+  }
+  private callAPIStarships(): void {
     this.http
       .get<StarshipsResponse>(`https://swapi.dev/api/starships`)
       .subscribe(resp => {
@@ -33,9 +39,9 @@ export class StarwarsService {
   //   return starship[0].url
   // }
   getImageStarship(starship: string): string {
-
     return `https://starwars-visualguide.com/assets/img/starships/${starship}.jpg`
   }
+
 
 
 }
