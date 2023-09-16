@@ -8,11 +8,19 @@ import { Starships, StarshipsResponse } from '../interfaces/starships.interfaces
 })
 export class StarwarsService {
   private _starships: Starships[] = [];
+  private _starshipSelected!: Starships;
+  public urlImgStarship!: string;
+  public starshipID!: string;
+
   public page: number = 1;
   // private firstCallAPI: boolean = false;
   constructor(private http: HttpClient) { }
   get starships() {
     return [...this._starships];
+  }
+
+  get starshipSelected() {
+    return { ...this._starshipSelected };
   }
   callAPI(): void {
     if (this._starships.length !== 0) return
@@ -22,25 +30,34 @@ export class StarwarsService {
   }
   private callAPIStarships(): void {
     this.http
-      .get<StarshipsResponse>(`https://swapi.dev/api/starships`)
+      .get<StarshipsResponse>(`https://swapi.dev/api/starships/?page=${this.page}`)
       .subscribe(resp => {
         this._starships.push(...resp.results);
+
         // resp.results[i].url
-        console.log(resp.results)
+        // console.log(resp.results)
       })
   }
 
-  cogerImagen() {
-    this._starships
+  getImageStarship(index: number): string {
+    this.starshipID = this.getID(index);
+    // this._starshipSelected = this.starships[index];
+    return `https://starwars-visualguide.com/assets/img/starships/${this.starshipID}.jpg`;
   }
 
-  // getIDStarships(id: number): string {
+  getID(index: number): string {
+    // console.log(this.starships[index])
 
-  //   return starship[0].url
-  // }
-  getImageStarship(starship: string): string {
-    return `https://starwars-visualguide.com/assets/img/starships/${starship}.jpg`
+    return this.starships[index].url.replace(/[^0-9]+/g, '');
   }
+
+  selectedStarship(index: number): void {
+    this._starshipSelected = this.starships[index];
+    this.urlImgStarship = this.getImageStarship(index);
+  }
+
+
+
 
 
 

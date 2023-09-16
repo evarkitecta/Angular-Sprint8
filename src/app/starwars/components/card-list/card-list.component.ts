@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Starships } from '../../interfaces/starships.interfaces';
+import { StarwarsService } from '../../services/starwars.service';
 
 
 @Component({
@@ -10,33 +11,25 @@ import { Starships } from '../../interfaces/starships.interfaces';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent {
-  @Input()
-  public starships: Starships[] = [];
-  // @Output()
-  // public starshipToShow: EventEmitter<Starships> = new EventEmitter();
-  // public starshipID!: number;
-  constructor(private router: Router) { }
+
+  constructor(
+    private starwarsService: StarwarsService,
+    private router: Router) { }
+
+  // Llamamos a las starships a través del método get
+  get starships(): Starships[] {
+    return this.starwarsService.starships;
+  }
   getImageStarship(index: number): string {
-    const id = this.getStarshipID(index);
-    return `https://starwars-visualguide.com/assets/img/starships/${id}.jpg`
+    const imgStarship = this.starwarsService.getImageStarship(index);
+    return imgStarship
   }
 
-  // catchStarship(starship: Starships): void {
-  //   this.starshipToShow.emit(starship)
-  // }
+  showCardStarship(index: number): void {
+    const id = this.starwarsService.getID(index);
+    this.starwarsService.selectedStarship(index);
 
-  getStarshipID(index: number): string {
-    return this.starships[index].url.replace(/[^0-9]+/g, '');
-
-  }
-  showStarship(index: number): void {
-    const id = this.getStarshipID(index);
     this.router.navigateByUrl(`/starships/${id}`);
   }
-
-  // getID(index: number): string {
-
-  // }
-
 
 }

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StarwarsService } from '../../services/starwars.service';
 
 @Component({
   selector: 'starwars-starship-card-page',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./starship-card-page.component.css']
 })
 export class StarshipCardPageComponent {
+
+  constructor(private starwarsService: StarwarsService) {
+    // this.starwarsService.callAPI();
+  }
 
 }

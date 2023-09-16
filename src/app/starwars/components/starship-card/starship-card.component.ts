@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { Starships } from '../../interfaces/starships.interfaces';
+import { StarwarsService } from '../../services/starwars.service';
 
 @Component({
   selector: 'starwars-starship-card',
@@ -8,7 +9,15 @@ import { Starships } from '../../interfaces/starships.interfaces';
 })
 export class StarshipCardComponent {
 
-  @Input()
-  public starships: Starships[] = [];
+  constructor(private starwarsService: StarwarsService) {
+  }
+
+  get starshipSelected(): Starships {
+    return this.starwarsService.starshipSelected
+  }
+
+  get urlImgStarship(): string {
+    return this.starwarsService.urlImgStarship
+  }
 
 }
