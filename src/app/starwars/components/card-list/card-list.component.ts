@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Starships } from '../../interfaces/starships.interfaces';
@@ -14,8 +14,17 @@ export class CardListComponent {
 
   constructor(
     private starwarsService: StarwarsService,
-    private router: Router) { }
+    private router: Router,
+    private elementRef: ElementRef) { }
 
+  // Exercici 3: view more starships
+
+
+  loadMoreStarships(): void {
+    this.starwarsService.callAPIStarships();
+  }
+
+  // Exercicis 1 i 2
   // Llamamos a las starships a través del método get
   get starships(): Starships[] {
     return this.starwarsService.starships;
