@@ -9,7 +9,7 @@ import { StarwarsService } from '../../services/starwars.service';
 export class StarshipCardPageComponent {
 
   constructor(private starwarsService: StarwarsService) {
-    // this.starwarsService.callAPI();
+    
   }
 
 }

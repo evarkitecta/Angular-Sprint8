@@ -11,7 +11,7 @@ export class StarshipsPageComponent {
 
 
   constructor(private starwarsService: StarwarsService) {
-    this.starwarsService.callAPIStarships();
+  
   }
 
 
