@@ -1,0 +1,59 @@
+<div class="flex flex-column bg-light m-5 p-5 rounded-3 w-50 w-sm-100">
+
+    <h4 class="text-lg mb-4 fw-bold">Registro</h4>
+    <div class="mb-3">
+      <label for="inUserName" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="inUserName" placeholder="Nombre">
+    </div>
+    <div class="mb-3">
+      <label for="inUserSurname" class="form-label">Apellido:</label>
+      <input type="text" class="form-control" id="inUserSurname" placeholder="Apellido">
+    </div>
+
+    <div class="mb-3">
+      <label for="inUser" class="form-label">Usuario:</label>
+      <input type="text" class="form-control" id="inUser" placeholder="Usuario">
+    </div>
+    <div class="mb-3">
+      <label for="inUserName" class="form-label">Email:</label>
+      <input type="text" class="form-control" id="inUserName" placeholder="Nombre de usuario">
+    </div>
+    <div class="mb-3">
+      <label for="inPassword" class="form-label">Contraseña: </label>
+      <input type="password" id="inPassword" class="form-control" aria-describedby="passwordHelpBlock">
+      <div id="passwordHelpBlock" class="form-text">
+        Tu contraseña debe contener entre 8-20 caracteres. Debe contener letras y números, no debe contener espacios en blanco, caracteres especiales o emojis.
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="inPassword2" class="form-label">Repetir contraseña:</label>
+      <input type="text" class="form-control" id="inPassword2" placeholder="Contraseña">
+    </div>
+   
+    <!-- <div>
+      <label>Usuario: </label>
+      <input type="text"  placeholder="Nombre de usuario">
+    </div> -->
+  
+    <!-- <div>
+      <label>Nombre</label>
+      <input type="text"  placeholder="Nombre de usuario">
+    </div> -->
+  
+    <!-- <div>
+      <label>Contraseña</label>
+      <input type="password"  placeholder="Contraseña">
+    </div> -->
+  
+    <button class="btn btn-warning">
+      <!-- <mat-icon>save</mat-icon> -->
+      Crear cuenta
+    </button>
+  
+  
+    <div class="flex justify-content-end mt-5">
+      <a routerLink="/auth/login">Ya tengo cuenta</a>
+    </div>
+  
+  </div>

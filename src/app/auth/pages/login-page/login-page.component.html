@@ -1,0 +1,26 @@
+<div class="flex flex-column bg-light m-5 p-5">
+
+    <p class="text-lg mb-4">Login</p>
+  
+    <div>
+      <label>Usuario</label>
+      <input type="text" placeholder="Nombre de usuario">
+    </div>
+  
+    <div>
+      <label>Contraseña</label>
+      <input type="password" placeholder="Contraseña">
+    </div>
+  
+    <button 
+      (click)="onLogin()">
+      <!-- <mat-icon>save</mat-icon> -->
+      Ingresar
+    </button>
+  
+  
+    <div class="flex justify-content-end mt-5">
+      <a routerLink="/auth/new-account">No tengo cuenta</a>
+    </div>
+  
+  </div>

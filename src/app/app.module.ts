@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
+import { AuthModule } from './auth/auth.module';
 import { LayoutModule } from './layout/layout.module';
 import { StarwarsModule } from './starwars/starwars.module';
 
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule,
     LayoutModule,
-    StarwarsModule
+    StarwarsModule,
+    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
