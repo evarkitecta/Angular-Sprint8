@@ -9,8 +9,8 @@
 
 .header{
   width: 100%;
-  height: 20vh;
-  position: fixed;
+  /* height: 20vh; */
+  /* position: fixed; */
   top: 0;
   left: 0;
   z-index: 10;
@@ -19,8 +19,8 @@
 .pages{
   width: 100%;
    /* mismo margen superior que altura del header que es fijo */
-  margin-top: 20vh;
-  padding: 5vh;
+  /* margin-top: 20vh; */
+  /* padding: 5vh; */
   /* Equivalente a flex-fill de bootstrap: Rellenar el espacio restante entre el header y el footer */
   /* flex-grow: 1;
   flex-shrink: 1;

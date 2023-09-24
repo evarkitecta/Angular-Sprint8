@@ -1,7 +1,42 @@
-<div class="bg-dark border-right p-3 layout-header">
-  <p class="text-light">header
-    works!
-  </p>
-  <img src="../../assets/star-wars-logo.svg" style="height:100px">
-  <hr>
-</div>
+<header class=" border-right  layout-header text-center">
+
+  <nav class="d-flex flex-wrap flex-column">
+
+    <div class="d-flex justify-content-center align-items-center ">
+      <!-- SOCIAL MENU -->
+      <ul class="col-3 social d-flex gap-4 justify-content-center">
+        <li class="social-icon"><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
+        <li class="social-icon"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+        <li class="social-icon"><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+        <li class="social-icon"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+        <li class="social-icon"><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+      </ul>
+      <!-- LOGO -->
+      <div class="col-6 logo align-items-center pb-4 pt-2">
+        <a href="home" class="logo-img">
+          <img  src="../../assets/star-wars-logo.png" style="height:90px">
+        </a>
+      </div>
+      <!-- REGISTER MENU -->
+      <ul class="col-3 register d-flex  flex-wrap gap-4 justify-content-center pe-5">
+        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; SEARCH</a></li>
+        <li><a routerLink="/auth/login"><i class="fa-regular fa-user"></i>&nbsp; SIGN IN</a></li>
+      </ul>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <!-- <ul class="menu col-12 d-flex justify-content-center align-items-center gap-5 ">
+          <li class="underline-menu active"><a routerLink="/home">HOME</a></li>
+          <li class="underline-menu"><a routerLink="/starships"> STARSHIPS  </a></li>
+    </ul> -->
+    <div class="col-12 d-flex justify-content-center gap-5 border-bottom border-white mb-2">
+      <a class="btn btn-link nav-item nav-link" routerLink="/home" routerLinkActive="active-link" routerLinkActive="active-link">HOME</a>
+      <!-- <span class="separator">|</span> -->
+
+      <a class="btn btn-link nav-item nav-link" routerLink="/starships routerLinkActive">STARSHIPS</a>
+    </div>
+
+  </nav>
+
+
+</header>

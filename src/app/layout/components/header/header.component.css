@@ -9,5 +9,47 @@
   word-wrap: break-word;
 } */
 
+nav ul{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+a:hover{
+  color: #ffde06;
+  font-weight: bold;
+}
+
+.menu a{
+  color: rgb(216, 214, 214);
+  font-weight: bold;
+}
+.menu a:hover{
+  color: #ffde06;
+  font-weight: bold;
+
+}
+.logo-img {
+  width: 60%;
+  height: 70%;
+  margin: auto;
+}
 
 
+.social-icon{
+font-size: 1.3rem;
+}
+
+.btn:hover {
+  color: #ffde06;
+
+}
+
+.active-link {
+  border-bottom: #ffde06 solid 3px;
+  border-radius: 0px;
+  color: #FADE4B;
+}

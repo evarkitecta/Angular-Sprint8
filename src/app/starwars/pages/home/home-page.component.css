@@ -1,6 +1,42 @@
 .home-page{
-  min-height: 70vh;
+  min-height: 60vh;
   width: 100%;
-  padding: 5vh;
+  /* padding: 5vh; */
 
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* filter: invert(100%); */
+  background-color: #FADE4B;
+  border-radius: 50%;
+  padding: 25px;
+  margin: 25px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  color: black;
+}
+/* .carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: white;
+}
+.carousel-caption h5 {
+  margin-bottom: 5px;
+}
+.carousel-caption p {
+  margin-bottom: 0;
+} */
+.fixed-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
 }
