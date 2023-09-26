@@ -3,6 +3,7 @@
   /* Poner una altura mínima en px (no relativas a la pantalla) para que no se haga más pequeño el header que el contenido que contiene provocando que se desborde el texto o bien utilizar keyframes para adaptar las medidas en función del tamaño de la pantalla */
   min-height: 150px;
   height: 100%;
+
 }
 /* Cuando una palabra sea muy larga y queramos que se adapte al ancho del contenedor div y no se salga y/o genere barras horizontales */
 /* #layout-header p{
@@ -18,9 +19,24 @@ a{
   color: white;
   font-weight: bold;
 }
-a:hover{
-  color: #ffde06;
+
+/* a .btn{
+  color: rgb(216, 214, 214);
   font-weight: bold;
+} */
+a:hover{
+  color: #FADE4B;
+  font-weight: bold;
+}
+
+.logo-img {
+  width: 60%;
+  height: 70%;
+  margin: auto;
+}
+
+.social-icon{
+font-size: 1.3rem;
 }
 
 .menu a{
@@ -28,28 +44,15 @@ a:hover{
   font-weight: bold;
 }
 .menu a:hover{
-  color: #ffde06;
+  color: #FADE4B;
   font-weight: bold;
-
-}
-.logo-img {
-  width: 60%;
-  height: 70%;
-  margin: auto;
 }
 
 
-.social-icon{
-font-size: 1.3rem;
-}
-
-.btn:hover {
-  color: #ffde06;
-
-}
 
 .active-link {
-  border-bottom: #ffde06 solid 3px;
+  border-bottom: #FADE4B solid 4px;
   border-radius: 0px;
-  color: #FADE4B;
-}
+  }
+
+

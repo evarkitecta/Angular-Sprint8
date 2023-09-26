@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AuthModule } from './auth/auth.module';
@@ -16,11 +18,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     AppRoutingModule,
+    AuthModule,
     BrowserModule,
     HttpClientModule,
     LayoutModule,
+    ReactiveFormsModule,
+    RouterModule,
     StarwarsModule,
-    AuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

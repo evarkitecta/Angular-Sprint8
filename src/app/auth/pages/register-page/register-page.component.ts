@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ValidatorsService } from 'src/app/shared/service/validators.service';
+// import * as customValidators from 'src/app/shared/validators/validators';
 
 @Component({
   selector: 'app-register-page',
@@ -6,5 +9,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
+  public registerForm: FormGroup = this.fb.group({
+    name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],
+    email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)]],
+    username: ['', [Validators.required, this.validatorsService.cantBeStrider]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
+    password2: ['', [Validators.required]],
+  })
+  constructor(
+    private fb: FormBuilder,
+    private validatorsService: ValidatorsService
+  ) { }
 
+  isValidField(field: string) {
+    return this.validatorsService.isValidField(this.registerForm, field);
+  }
+  onSubmit() {
+    this.registerForm.markAllAsTouched();
+  }
 }

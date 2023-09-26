@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+
 import { HomePageComponent } from './pages/home/home-page.component';
 import { StarshipsPageComponent } from './pages/starships-page/starships-page.component';
 import { CardListComponent } from './components/card-list/card-list.component';
@@ -7,7 +9,6 @@ import { StarshipCardPageComponent } from './pages/starship-card-page/starship-c
 import { StarshipCardComponent } from './components/starship-card/starship-card.component';
 import { FilmsCardComponent } from './components/films-card/films-card.component';
 import { PilotsCardComponent } from './components/pilots-card/pilots-card.component';
-
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { PilotsCardComponent } from './components/pilots-card/pilots-card.compon
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ]
 })
 export class StarwarsModule { }

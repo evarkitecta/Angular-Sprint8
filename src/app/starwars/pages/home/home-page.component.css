@@ -7,34 +7,21 @@
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   /* filter: invert(100%); */
-  background-color: #FADE4B;
+  /* background-color: #FADE4B; */
+  background-color: rgb(83, 81, 81);
   border-radius: 50%;
-  padding: 25px;
-  margin: 25px;
+padding: 20px;
+color: yellow !important;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
   color: black;
 }
-/* .carousel-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  color: white;
-}
-.carousel-caption h5 {
-  margin-bottom: 5px;
-}
-.carousel-caption p {
-  margin-bottom: 0;
-} */
+
 .fixed-content {
   position: absolute;
-  top: 50%;
+  top: 80%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
