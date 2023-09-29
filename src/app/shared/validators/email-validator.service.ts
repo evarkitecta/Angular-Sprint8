@@ -24,7 +24,8 @@ export class EmailValidator implements AsyncValidator {
       subscriber.next(null);
       subscriber.complete();
     }).pipe(
-      delay(3000)
+      // Usamos el delay para simular una respuesta a una llamada a backend que puede tardar un poco
+      delay(1000)
     );;
 
     return httpCallObservable;

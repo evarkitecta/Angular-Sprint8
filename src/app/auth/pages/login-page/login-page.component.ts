@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { observeOn } from 'rxjs';
+import { ValidatorsService } from 'src/app/shared/service/validators.service';
 
 @Component({
   selector: 'app-login-page',
@@ -13,6 +14,7 @@ import { observeOn } from 'rxjs';
 export class LoginPageComponent {
   constructor(
     private authService: AuthService,
+    private validatorsService: ValidatorsService,
     private router: Router,
     private fb: FormBuilder
 
@@ -21,7 +23,7 @@ export class LoginPageComponent {
   public submit: boolean = false;
   // FORMULARIO REACTIVO
   public loginForm: FormGroup = this.fb.group({
-    user: ['', [Validators.required, Validators.email]],
+    user: ['', [Validators.required, Validators.minLength(4)]],
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
@@ -40,17 +42,21 @@ export class LoginPageComponent {
     const control = this.loginForm.controls[field];
     return control?.errors && control.touched
   }
+
   getFieldError(field: string): string | null {
-    if (!this.loginForm.controls[field]) return null;
-    const errors = this.loginForm.controls[field].errors || {};
-    for (const key of Object.keys(errors)) {
-      switch (key) {
-        case "required": return "El campo es requerido";
-        case "minlength": return `Minimo ${errors["minlength"].requiredLength} caracteres`;
-      }
-    }
-    return null;
+    return this.validatorsService.getFieldError(this.loginForm, field)
   }
+  // getFieldError(field: string): string | null {
+  //   if (!this.loginForm.controls[field]) return null;
+  //   const errors = this.loginForm.controls[field].errors || {};
+  //   for (const key of Object.keys(errors)) {
+  //     switch (key) {
+  //       case "required": return "El campo es requerido";
+  //       case "minlength": return `Minimo ${errors["minlength"].requiredLength} caracteres`;
+  //     }
+  //   }
+  //   return null;
+  // }
   // Check Login -> Service
   submitLogin() {
     this.submit = false;

@@ -5,40 +5,45 @@
       <div class="mb-3">
         <label for="inName" class="form-label">Nombre:</label>
         <input type="text" class="form-control" id="inName" placeholder="Nombre" formControlName="name">
-        <span *ngIf="isValidField('name')"  class="form-text text-danger">
+        <!-- <span *ngIf="isValidField('name')"  class="form-text text-danger">
           Debe de ser en formato de nombre y apellido
-      </span>
+      </span> -->
+      <span *ngIf="isValidField('name')" class="form-text text-danger">{{getFieldError("name")}}</span>
       </div>
       <div class="mb-3">
         <label for="inEmail" class="form-label">Email:</label>
         <input type="text" class="form-control" id="inEmail" placeholder="ejemplo@ejemplo.com" formControlName="email">
-        <span *ngIf="isValidField('email')"  class="form-text text-danger">
+        <!-- <span *ngIf="isValidField('email')"  class="form-text text-danger">
           Email no válido
-      </span>
+      </span> -->
+      <span *ngIf="isValidField('email')" class="form-text text-danger">{{getFieldError("email")}}</span>
+
       </div>
       <div class="mb-3">
         <label for="inUser" class="form-label">Usuario:</label>
         <input type="text" class="form-control" id="inUser" placeholder="Usuario" formControlName="username">
-        <span *ngIf="isValidField('username')"  class="form-text text-danger">
+        <!-- <span *ngIf="isValidField('username')"  class="form-text text-danger">
           El username ya está en uso. Escoge otro nombre de usuario.
-     </span>
+     </span> -->
+     <span *ngIf="isValidField('username')" class="form-text text-danger">{{getFieldError("username")}}</span>
       </div>
 
       <div class="mb-3">
         <label for="inPassword" class="form-label">Contraseña: </label>
         <input type="password" id="inPassword" class="form-control"  placeholder="Contraseña" formControlName="password">
-        <span *ngIf="isValidField('password')"  class="form-text text-danger">
+        <!-- <span *ngIf="isValidField('password')"  class="form-text text-danger">
           Tu contraseña debe tener entre 8-20 caracteres. Debe contener letras y números, no debe contener espacios en blanco, caracteres especiales o emojis.
-     </span>
+     </span> -->
+     <span *ngIf="isValidField('password')" class="form-text text-danger">{{getFieldError("password")}}</span>
 
       </div>
       <div class="mb-3">
         <label for="inPassword2" class="form-label">Confirmar contraseña:</label>
         <input type="password" class="form-control" id="inPassword2" placeholder="Confirmar contraseña" formControlName="password2">
-        <span *ngIf="isValidField('password2')"  class="form-text text-danger">
+        <!-- <span *ngIf="isValidField('password2')"  class="form-text text-danger">
           Las contraseñas deben de ser iguales
-     </span>
-
+     </span> -->
+     <span *ngIf="isValidField('password2')" class="form-text text-danger">{{getFieldError("password2")}}</span>
       </div>
       <div class="text-center mt-3">
         <button class="btn btn-warning" type="submit">

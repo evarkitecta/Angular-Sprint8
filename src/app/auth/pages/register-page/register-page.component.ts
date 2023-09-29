@@ -10,12 +10,20 @@ import { EmailValidator } from 'src/app/shared/validators/email-validator.servic
   styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent {
+  constructor(
+    private fb: FormBuilder,
+    private validatorsService: ValidatorsService,
+    private emailValidator: EmailValidator
+  ) { }
+
+  // FORMULARIO REACTIVO
   public registerForm: FormGroup = this.fb.group({
-    name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],
+    // name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],
+    name: ['', [Validators.required, this.validatorsService.nameAndSurname]],
     // email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)], [new EmailValidator()]],
     email: ['', [Validators.required, Validators.pattern(this.validatorsService.emailPattern)], [this.emailValidator]],
 
-    username: ['', [Validators.required, this.validatorsService.cantBeStrider]],
+    username: ['', [Validators.required, Validators.minLength(3), this.validatorsService.cantBeStrider]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     password2: ['', [Validators.required]],
   },
@@ -23,16 +31,14 @@ export class RegisterPageComponent {
       validators: [this.validatorsService.isFieldOneEqualFieldTwo('password', 'password2')]
     }
   )
-  constructor(
-    private fb: FormBuilder,
-    private validatorsService: ValidatorsService,
-    private emailValidator: EmailValidator
-  ) { }
 
+  // LLAMAR A SERVICIO PARA VALIDAR LOS CAMPOS
   isValidField(field: string) {
     return this.validatorsService.isValidField(this.registerForm, field);
   }
-
+  getFieldError(field: string): string | null {
+    return this.validatorsService.getFieldError(this.registerForm, field)
+  }
   onSubmit() {
     this.registerForm.markAllAsTouched();
   }
