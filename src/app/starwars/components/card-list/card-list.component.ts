@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Starships } from '../../interfaces/starships.interfaces';
+import { Starships } from '../../interfaces/starships.interface';
 import { StarwarsService } from '../../services/starwars.service';
 
 
@@ -15,13 +15,12 @@ export class CardListComponent {
   constructor(
     private starwarsService: StarwarsService,
     private router: Router,
-    private elementRef: ElementRef) 
-    {
-      this.starwarsService.callAPI();  
-    }
+    private elementRef: ElementRef) {
+    this.starwarsService.callAPI();
+  }
 
   // Exercici 3: view more starships
-  public page= this.starwarsService.page
+  public page = this.starwarsService.page
 
   loadMoreStarships(): void {
     this.starwarsService.callAPIStarships();
@@ -30,9 +29,9 @@ export class CardListComponent {
   }
 
   goToTop(): void {
-    window.scroll(0,0);
+    window.scroll(0, 0);
   }
- 
+
 
   // Exercicis 1 i 2
   // Llamamos a las starships a través del método get

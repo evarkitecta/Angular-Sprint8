@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { StarwarsService } from '../../services/starwars.service';
+import { Pilots } from '../../interfaces/pilots.interface';
 
 @Component({
   selector: 'starwars-pilots-card',
@@ -6,5 +8,31 @@ import { Component } from '@angular/core';
   styleUrls: ['./pilots-card.component.css']
 })
 export class PilotsCardComponent {
+  public urlImg: string =
+    'https://starwars-visualguide.com/assets/img/characters/';
+
+
+  constructor(private starwarsService: StarwarsService) { }
+
+  // get pilotsControl() {
+  //   return this.starwarsService.pilotsControl;
+  // }
+  // get pilots() {
+  //   return this.starwarsService.pilots;
+  // }
+  get infoPilots() {
+    return this.starwarsService.infoPilots;
+  }
+
+  getPilotID(i: number) {
+    const url = this.infoPilots[i].url;
+    // console.log("URL desde componente", url)
+    // this.saveInfoPilots(url);
+    return this.starwarsService.getPilotID(url);
+  }
+
+
+
+
 
 }

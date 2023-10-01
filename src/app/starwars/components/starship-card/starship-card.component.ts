@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Starships } from '../../interfaces/starships.interfaces';
+import { Starships } from '../../interfaces/starships.interface';
 import { StarwarsService } from '../../services/starwars.service';
 
 @Component({
