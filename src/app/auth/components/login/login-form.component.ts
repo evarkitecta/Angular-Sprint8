@@ -5,13 +5,14 @@ import { AuthService } from '../../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { observeOn } from 'rxjs';
 import { ValidatorsService } from 'src/app/shared/service/validators.service';
+// import { User } from '../../interfaces/user.interface';
 
 @Component({
-  selector: 'app-login-page',
-  templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  selector: 'app-login-form',
+  templateUrl: './login-form.component.html',
+  styleUrls: ['./login-form.component.css']
 })
-export class LoginPageComponent {
+export class LoginFormComponent {
   constructor(
     private authService: AuthService,
     private validatorsService: ValidatorsService,
@@ -19,7 +20,7 @@ export class LoginPageComponent {
     private fb: FormBuilder
 
   ) { }
-
+  public loginError: string = "";
   public submit: boolean = false;
   // FORMULARIO REACTIVO
   public loginForm: FormGroup = this.fb.group({
@@ -35,7 +36,7 @@ export class LoginPageComponent {
       return
     }
     console.log(this.loginForm.value);
-    this.loginForm.reset({ user: "", password: "" });
+    this.loginForm.reset();
   }
 
   isValidField(field: string): boolean | null {
@@ -46,40 +47,8 @@ export class LoginPageComponent {
   getFieldError(field: string): string | null {
     return this.validatorsService.getFieldError(this.loginForm, field)
   }
-  // getFieldError(field: string): string | null {
-  //   if (!this.loginForm.controls[field]) return null;
-  //   const errors = this.loginForm.controls[field].errors || {};
-  //   for (const key of Object.keys(errors)) {
-  //     switch (key) {
-  //       case "required": return "El campo es requerido";
-  //       case "minlength": return `Minimo ${errors["minlength"].requiredLength} caracteres`;
-  //     }
-  //   }
-  //   return null;
-  // }
-  // Check Login -> Service
-  submitLogin() {
-    this.submit = false;
-    if (this.loginForm.status !== 'VALID') {
-      this.submit = true;
-      /*alert('Please, check the entered data');*/
-    } else {
-      this.authService.login(
-        this.loginForm.value.email,
-        this.loginForm.value.password
-      );
-      // this.loginModal.dismissAll();
-    }
-  }
-  // protección de rutas Herrera
-  onLogin(): void {
 
-    this.authService.login('default@gmail.com', '123456')
-      .subscribe(user => {
-
-        this.router.navigate(['/']);
-
-      });
+  onLogin() {
 
   }
 }

@@ -31,8 +31,4 @@ export class PilotsCardComponent {
     return this.starwarsService.getPilotID(url);
   }
 
-
-
-
-
 }

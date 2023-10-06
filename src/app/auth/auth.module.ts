@@ -6,16 +6,16 @@ import { AuthRoutingModule } from './auth-routing.module';
 
 import { LayoutAuthPageComponent } from './pages/layout-auth-page/layout-auth-page.component';
 
-import { LoginPageComponent } from './pages/login-page/login-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { LoginFormComponent } from './components/login/login-form.component';
+import { RegisterFormComponent } from './components/register/register-form.component';
 
 
 
 @NgModule({
   declarations: [
     LayoutAuthPageComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
+    LoginFormComponent,
+    RegisterFormComponent,
 
   ],
   imports: [

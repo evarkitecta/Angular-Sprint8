@@ -16,13 +16,13 @@ export class LayoutAuthPageComponent {
   ) { }
 
 
-  get user(): User | undefined {
-    return this.authService.currentUSer;
-  }
+  // get user(): User | undefined {
+  //   return this.authService.currentUSer;
+  // }
 
-  onLogout() {
-    this.authService.logout();
-    this.router.navigate(['./auth/login']);
-  }
+  // onLogout() {
+  //   this.authService.logout();
+  //   this.router.navigate(['./auth/login']);
+  // }
 
 }

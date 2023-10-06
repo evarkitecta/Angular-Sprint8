@@ -2,7 +2,7 @@
 /* Cuando no queramos dejar márgenes, los componentes header y footer se adaptarán al 100% de la altura de estos contenedores (height=width=100% )*/
 
 .container-main-page{
-  max-width: 100%;
+  width: 100%;
   min-height: 100vh;
   background-color: black;
 }
@@ -29,7 +29,7 @@
 
 .footer{
   width: 100%;
-  height: 10vh;
+ height: 10vh;
 
 }
 

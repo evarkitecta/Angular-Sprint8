@@ -1,5 +1,12 @@
 export interface User {
-    id: number;
-    user: string;
-    email: string;
+
+  name: string;
+  email: string;
+  username: string;
+  password: string;
+}
+
+export interface LoginRequest {
+  email: string;
+  password: string;
 }

@@ -1,1 +1,25 @@
-<p>films-card works!</p>
+<div  class="row w-100 ps-5 m-auto">
+  <h4 class="mt-2">FILMS</h4>
+  <div *ngIf="infoFilms.length>0" class="d-flex flex-wrap">
+    <div *ngFor="let film of infoFilms; let i = index" class="col-md-2 col-sm-3 m-2">
+
+        <div class="card mb-2 text-center bg-dark">
+          <img
+            src="{{ urlImg }}{{ getFilmID(i) }}.jpg"
+            onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'"
+            alt="Film picture"
+            class="card-img-top"
+                      />
+          <div class="card-body text-white">
+            <p class="card-title text-center ">{{ film.title | uppercase }}</p>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  <div *ngIf="infoFilms.length===0"
+   class="row">
+   <p>There are no films available on this starship</p>
+  </div>
+</div>
+

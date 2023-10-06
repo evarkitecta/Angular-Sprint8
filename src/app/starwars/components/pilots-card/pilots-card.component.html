@@ -1,7 +1,7 @@
-<div  class="row mx-5">
-  <h4 class="">PILOTS</h4>
-  <div *ngIf="infoPilots.length>0" class="d-flex flex-wrap m-5">
-    <div *ngFor="let pilot of infoPilots; let i = index" class="col-md-2 col-sm-3 m-2">
+<div  class="row w-100 ps-5 m-auto">
+  <h4 class="mt-2">PILOTS</h4>
+  <div *ngIf="infoPilots.length>0" class="d-flex flex-wrap">
+    <div *ngFor="let pilot of infoPilots; let i = index" class=" col-md-2 col-sm-3 m-2">
 
         <div class="card mb-2 text-center bg-dark">
           <img
@@ -9,9 +9,10 @@
             onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'"
             alt="Pilot picture"
             class="card-img-top"
+
           />
-          <div class="card-body">
-            <p class="card-title text-center text-white">{{ pilot.name | uppercase }}</p>
+          <div class="card-body text-white">
+            <p class="card-title text-center">{{ pilot.name | uppercase }}</p>
           </div>
         </div>
 

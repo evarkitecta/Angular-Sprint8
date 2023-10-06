@@ -1,7 +1,7 @@
 <div class="d-flex flex-column bg-light m-auto p-5 rounded-3 w-50 w-sm-100 justify-content-center ">
 
     <h3 class="text-lg mb-4 fw-bold text-center">Login</h3>
-
+    <p class="text-danger">{{loginError}}</p>
     <form [formGroup]="loginForm" (ngSubmit)="onSave()" autocomplete="off">
       <div class="mb-3">
         <label for="inUser" class="form-label">Usuario:</label>
@@ -14,7 +14,7 @@
         <span *ngIf="isValidField('password')" class="form-text text-danger">{{getFieldError("password")}}</span>
       </div>
       <div class="text-center mt-3">
-        <button class="btn btn-warning "
+        <button class="btn btn-warning " type="submit"
           (click)="onLogin()">
 
           Entrar
