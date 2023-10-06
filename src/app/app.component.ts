@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app-star-wars';
+  constructor() {
+    this.deleteLocalStorage()
+  }
+
+
+
+  deleteLocalStorage() {
+    localStorage.removeItem("userSesion")
+  }
 }

@@ -1,31 +1,48 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { environments } from 'src/environments/environments';
-import { User } from '../interfaces/user.interface';
+import { LoginRequest, User } from '../interfaces/user.interface';
 import { Observable } from 'rxjs/internal/Observable';
 import { catchError, map, of, tap, throwError } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
-export class AuthService {
+export class AuthService implements OnInit {
   router: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
-  private users: User[] = [
-
-  ]
-
-  login(user: User) {
+  }
+  ngOnInit(): void {
 
   }
 
-  // saveNewUser(user: User) {
-  //   // Faltarían las validaciones de si ya existe el mail o el usuario en la base de datos lanzar un error y marcar en rojo los campos.
-  //   this.saveToLocalStorage(user);
+  private users: User[] = [];
 
-  // }
+  private isUserLoggedIn: boolean = false;
+
+
+  private userSesion: LoginRequest = {
+    username: '',
+    password: ''
+  };
+  login(user: LoginRequest): boolean {
+    localStorage.removeItem("userSesion")
+    console.log("Credenciales de usuario", user);
+    const users: User[] = this.getFromLocalStorage();
+    console.log(users);
+    const isUserRegistered = users.find(u => u.username === user.username && u.password === user.password);
+    console.log(" Usuario logado", isUserRegistered)
+    if (isUserRegistered) {
+      this.isUserLoggedIn = true;
+      localStorage.setItem('userSesion', JSON.stringify(this.isUserLoggedIn));
+      return true;
+    } else {
+      return false;
+    }
+
+  }
 
   saveNewUser(user: User): boolean {
     const users: User[] = this.getFromLocalStorage();
@@ -44,23 +61,6 @@ export class AuthService {
     }
   }
 
-  // saveNewUser(user: User) {
-  //   const users: User[] = this.getFromLocalStorage();
-
-  //   // Verificar si el usuario o el email ya están registrados
-  //   const isUserRegistered = users.some(u => u.username === user.username);
-  //   const isEmailRegistered = users.some(u => u.email === user.email);
-
-  //   if (isUserRegistered || isEmailRegistered) {
-  //     // Mostrar el error de "Usuario y/o Email registrados"
-  //     alert("Usuario y/o Email registrados");
-  //   } else {
-  //     // Guardar el nuevo usuario en el localStorage
-  //     users.push(user);
-  //     localStorage.setItem('users', JSON.stringify(users));
-
-  //   }
-  // }
 
   public saveToLocalStorage(user: User) {
     const users = JSON.parse(localStorage.getItem('users') || '[]');
