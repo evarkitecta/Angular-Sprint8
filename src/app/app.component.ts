@@ -14,6 +14,7 @@ export class AppComponent {
 
 
   deleteLocalStorage() {
-    localStorage.removeItem("userSesion")
+    const userSesion = false;
+    localStorage.setItem("userSesion", JSON.stringify(userSesion))
   }
 }

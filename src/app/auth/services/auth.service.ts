@@ -1,32 +1,17 @@
 import { Injectable, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-import { environments } from 'src/environments/environments';
 import { LoginRequest, User } from '../interfaces/user.interface';
-import { Observable } from 'rxjs/internal/Observable';
-import { catchError, map, of, tap, throwError } from 'rxjs';
+
 
 
 @Injectable({ providedIn: 'root' })
-export class AuthService implements OnInit {
-  router: any;
+export class AuthService {
 
-  constructor(private http: HttpClient) {
+  private _isUserLoggedIn: boolean = false;
 
-  }
-  ngOnInit(): void {
-
+  get isUserLoggedIn(): boolean {
+    return this._isUserLoggedIn;
   }
 
-  private users: User[] = [];
-
-  private isUserLoggedIn: boolean = false;
-
-
-  private userSesion: LoginRequest = {
-    username: '',
-    password: ''
-  };
   login(user: LoginRequest): boolean {
     localStorage.removeItem("userSesion")
     console.log("Credenciales de usuario", user);
@@ -35,7 +20,7 @@ export class AuthService implements OnInit {
     const isUserRegistered = users.find(u => u.username === user.username && u.password === user.password);
     console.log(" Usuario logado", isUserRegistered)
     if (isUserRegistered) {
-      this.isUserLoggedIn = true;
+      this._isUserLoggedIn = true;
       localStorage.setItem('userSesion', JSON.stringify(this.isUserLoggedIn));
       return true;
     } else {
@@ -46,35 +31,33 @@ export class AuthService implements OnInit {
 
   saveNewUser(user: User): boolean {
     const users: User[] = this.getFromLocalStorage();
+    // comprobar si no existe ya el usuario en el localStorage (substituye a base de datos de backend)
     const isUserRegistered = users.some(u => u.username === user.username);
     const isEmailRegistered = users.some(u => u.email === user.email);
 
     if (isUserRegistered || isEmailRegistered) {
-      // Mostrar el error de "Usuario y/o Email registrados"
-
+      // Si está registrado el usuario devolvemos true
       return true;
 
     } else {
-      // Guardar el nuevo usuario en el localStorage
+      // Si no existe en la base de datos: Guardar nuevo usuario en el localStorage
       this.saveToLocalStorage(user);
       return false;
     }
   }
 
-
+  // Guardar los datos en el local storage para crear una base de datos de usuarios registrados (sustituye a base de datos de backend)
   public saveToLocalStorage(user: User) {
+    // Primero recogemos los datos del localStorage para tener un array de objetos al que empujar el nuevo usuario y después guardarlo
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     users.push(user);
     localStorage.setItem('users', JSON.stringify(users));
   }
 
-
-
+  // Recoger los datos del local storage para crear una base de datos de usuarios registrados (sustituye a base de datos de backend)
   public getFromLocalStorage() {
+    // Convertimos datos del local storage que vienen como string y los convertimos a objeto JSON
     return JSON.parse(localStorage.getItem('users')!);
   }
-
-
-
 
 }
