@@ -8,12 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app-star-wars';
   constructor() {
-    this.deleteLocalStorage()
+    this.resetLocalStorage()
   }
 
-
-
-  deleteLocalStorage() {
+  resetLocalStorage() {
     const userSesion = false;
     localStorage.setItem("userSesion", JSON.stringify(userSesion))
   }

@@ -1,32 +1,42 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { LoginRequest, User } from '../interfaces/user.interface';
-
-
+import { BehaviorSubject, Observable, take } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private _isUserLoggedIn: boolean = false;
+  private _isUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  private _userLoggedIn: LoginRequest = {
+    username: "",
+    password: ""
+  };
 
-  get isUserLoggedIn(): boolean {
-    return this._isUserLoggedIn;
+  get isUserLoggedIn(): Observable<boolean> {
+    return this._isUserLoggedIn.asObservable();
   }
 
   login(user: LoginRequest): boolean {
-    localStorage.removeItem("userSesion")
+    localStorage.removeItem("userSesion");
     console.log("Credenciales de usuario", user);
     const users: User[] = this.getFromLocalStorage();
     console.log(users);
     const isUserRegistered = users.find(u => u.username === user.username && u.password === user.password);
-    console.log(" Usuario logado", isUserRegistered)
+    console.log(" Usuario logueado", isUserRegistered)
     if (isUserRegistered) {
-      this._isUserLoggedIn = true;
-      localStorage.setItem('userSesion', JSON.stringify(this.isUserLoggedIn));
+      this._userLoggedIn = isUserRegistered;
+      localStorage.setItem('userLoggedIn', JSON.stringify(this.userLoggedIn));
+      this._isUserLoggedIn.next(true);
+      console.log("userLoggedIn", this._userLoggedIn);
+      localStorage.setItem('userSesion', JSON.stringify(true));
       return true;
     } else {
+
       return false;
     }
+  }
 
+  get userLoggedIn(): LoginRequest {
+    return this._userLoggedIn;
   }
 
   saveNewUser(user: User): boolean {
@@ -60,4 +70,15 @@ export class AuthService {
     return JSON.parse(localStorage.getItem('users')!);
   }
 
+  public checkUser(user: User) {
+
+  }
+
+  logout(): void {
+    this._isUserLoggedIn.next(false);
+    // localStorage.setItem('userSesion', JSON.stringify(false));
+    localStorage.removeItem("userSesion");
+    localStorage.removeItem('userLoggedIn');
+
+  }
 }

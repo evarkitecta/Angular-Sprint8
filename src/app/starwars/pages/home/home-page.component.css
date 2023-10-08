@@ -3,6 +3,7 @@
   width: 100%;
   /* padding: 5vh; */
 
+
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
@@ -21,9 +22,21 @@ color: yellow !important;
 
 .fixed-content {
   position: absolute;
-  top: 80%;
+  top: 70%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
   z-index: 1;
+}
+
+@media (max-width: 1020px) {
+  .fixed-content {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    text-align: center;
+    z-index: auto;
+    margin: 5vh;
+  }
 }

@@ -1,8 +1,8 @@
 <header class="layout-header text-center">
 
-  <nav class="d-flex flex-wrap flex-column mt-3">
+  <nav class=" d-flex flex-wrap flex-column mt-3">
 
-    <div class="d-flex justify-content-center align-items-center ">
+    <div class="d-flex justify-content-center align-items-center nav-header">
       <!-- SOCIAL MENU -->
       <ul class="col-3 social d-flex gap-4 justify-content-center">
         <li class="social-icon"><a href="#"><i class="fa-brands fa-tiktok"></i></a></li>
@@ -12,18 +12,22 @@
         <li class="social-icon"><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
       </ul>
       <!-- LOGO -->
-      <div class="col-6 logo pb-4 pt-2">
+      <div class="col-6 logo pb-md-2 pt-md-2 d-flex ">
         <a href="home" class="logo-img">
-          <img  src="../../assets/star-wars-logo.png" style="height:90px">
+          <img  class="logo-size" src="../../assets/star-wars-logo.png" >
         </a>
       </div>
       <!-- REGISTER MENU -->
-      <ul class="col-3 register d-flex  flex-wrap gap-4 justify-content-center pe-5">
-        <li><a href="#"><i class="fa-solid fa-magnifying-glass"></i>&nbsp; SEARCH</a></li>
-        <li><a routerLink="/auth/login"><i class="fa-regular fa-user"></i>&nbsp; SIGN IN</a></li>
+      <ul *ngIf="!isUserLoggedIn" class="col-3 register d-flex  flex-wrap gap-4 justify-content-md-center justify-content-sm-end align-items-center pe-md-5 pe-4">
+        <!-- <li><a href=""><i class="fa-solid fa-magnifying-glass"></i>&nbsp; SEARCH</a></li> -->
+        <li ><a routerLink="/auth/login"><i class="fa-regular fa-user"></i>&nbsp; SIGN IN</a></li>
+      </ul>
+      <ul *ngIf="isUserLoggedIn" class="col-3 register d-flex  flex-wrap gap-md-4 justify-content-md-center justify-content-sm-end align-items-center pe-md-5 pe-4" >
+        <li class="text-white fw-bold pe-2">¡Hola {{userNameLogged | uppercase}}!</li>
+        <li ><a class="btn btn-link" (click)="logout()"><i class="fa-regular fa-user"></i>&nbsp; LOG OUT</a></li>
       </ul>
     </div>
-
+s
     <!-- MAIN NAVBAR -->
      <div class="menu col-12 d-flex justify-content-center gap-5 border-bottom border-white mb-2">
 

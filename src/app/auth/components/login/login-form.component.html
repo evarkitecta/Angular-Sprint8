@@ -1,7 +1,7 @@
 <div class="d-flex flex-column bg-light m-auto p-5 rounded-3 w-50 w-sm-100 justify-content-center ">
 
     <h3 class="text-lg mb-4 fw-bold text-center">Login</h3>
-    <p class="text-danger">{{loginError}}</p>
+    <p *ngIf="loginError" class="text-danger">{{loginError}}</p>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()" autocomplete="off">
       <div class="mb-3">
         <label for="inUser" class="form-label">Usuario:</label>

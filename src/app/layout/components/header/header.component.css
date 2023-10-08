@@ -1,14 +1,8 @@
 .layout-header{
   width: 100%;
-  /* Poner una altura mínima en px (no relativas a la pantalla) para que no se haga más pequeño el header que el contenido que contiene provocando que se desborde el texto o bien utilizar keyframes para adaptar las medidas en función del tamaño de la pantalla */
   min-height: 150px;
   height: 100%;
-
 }
-/* Cuando una palabra sea muy larga y queramos que se adapte al ancho del contenedor div y no se salga y/o genere barras horizontales */
-/* #layout-header p{
-  word-wrap: break-word;
-} */
 
 nav ul{
   list-style: none;
@@ -20,19 +14,28 @@ a{
   font-weight: bold;
 }
 
-/* a .btn{
-  color: rgb(216, 214, 214);
-  font-weight: bold;
-} */
 a:hover{
   color: #FADE4B;
   font-weight: bold;
 }
 
+.social{
+  order: 1;
+}
+.logo {
+  order: 2;
+}
+
+.register {
+  order: 3;
+}
+
 .logo-img {
-  width: 60%;
-  height: 70%;
   margin: auto;
+}
+
+.logo-size{
+  height: 90px;
 }
 
 .social-icon{
@@ -48,11 +51,47 @@ font-size: 1.3rem;
   font-weight: bold;
 }
 
-
-
 .active-link {
   border-bottom: #FADE4B solid 4px;
   border-radius: 0px;
   }
 
+  @media (max-width: 768px) {
 
+   .logo-size{
+    height: 70px;
+    }
+
+    .nav-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      margin: 0px;
+      flex: 1 0 auto;
+      order: 1;
+      justify-content: flex-start;
+    }
+
+    .logo-img{
+      margin-left: 30px;
+    }
+    .register {
+      flex: 1 0 auto;
+      order: 2;
+      justify-content: flex-end;
+    }
+    .register li{
+      justify-content: flex-end;
+    }
+
+    .social {
+      flex: 1 0 100%;
+      order: 3;
+      margin-top: 30px;
+      margin-bottom: 0px;
+    }
+
+  }

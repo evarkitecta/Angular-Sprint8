@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors } from '@angular/forms';
+import { User } from 'src/app/auth/interfaces/user.interface';
 //Para detectar variables de formulario que no son los habituales como required
 // export const NO_STRIDER_ERROR = "noStrider";
 // export const NAME_SURNAME_ERROR = "firstNameAndLastnamePattern";
@@ -40,7 +41,7 @@ export class ValidatorsService {
     const control = form.controls[field];
     return control.errors && control.touched
   }
-
+  // Creación de mensajes de error
   public getFieldError(form: FormGroup, field: string): string | null {
     if (!form.controls[field]) return null;
     const errors = form.controls[field].errors || {};
@@ -54,6 +55,7 @@ export class ValidatorsService {
         case "emailTaken": return "Email ya registrado";
         case "pattern": return "Email no válido";
         case "nameAndSurname": return "Nombre de usuario no válido. Introduce un nombre y apellido separados por un espacio";
+        case "userNotRegistered": return "Usuario no válido";
         // case "pattern":
         //   if (key !== this.emailPattern) {
         //     return "Email no válido";
@@ -85,4 +87,13 @@ export class ValidatorsService {
       return null
     }
   }
+
+  public isUserRegistered(user: User, key: string): boolean {
+    const users: User[] = JSON.parse(localStorage.getItem(key) || '[]');
+    return users.some(u => u.username === user.username && u.password === user.password);
+  }
+
+
+
+
 }
