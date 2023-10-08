@@ -23,8 +23,6 @@ export class StarwarsService {
   private _films: string[] = [];
   public infoFilms: Films[] = [];
 
-
-  // private firstCallAPI: boolean = false;
   constructor(private http: HttpClient) { }
   get starships() {
     return [...this._starships];
@@ -37,14 +35,9 @@ export class StarwarsService {
     return [...this._pilots];
   }
 
-  // get infoPilots() {
-  //   return [...this._infoPilots];
-  // }
-
   callAPI(): void {
     if (this._starships.length !== 0) return
     this.callAPIStarships()
-
   }
 
   callAPIStarships(): void {
@@ -115,7 +108,6 @@ export class StarwarsService {
 
   getFilmsID(url: string): string {
     return url.replace(/[^0-9]+/g, '');
-
   }
 
 }

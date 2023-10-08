@@ -69,16 +69,9 @@ export class AuthService {
     // Convertimos datos del local storage que vienen como string y los convertimos a objeto JSON
     return JSON.parse(localStorage.getItem('users')!);
   }
-
-  public checkUser(user: User) {
-
-  }
-
   logout(): void {
     this._isUserLoggedIn.next(false);
-    // localStorage.setItem('userSesion', JSON.stringify(false));
     localStorage.removeItem("userSesion");
     localStorage.removeItem('userLoggedIn');
-
   }
 }

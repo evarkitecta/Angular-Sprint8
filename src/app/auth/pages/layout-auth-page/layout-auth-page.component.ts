@@ -15,14 +15,4 @@ export class LayoutAuthPageComponent {
     private router: Router,
   ) { }
 
-
-  // get user(): User | undefined {
-  //   return this.authService.currentUSer;
-  // }
-
-  // onLogout() {
-  //   this.authService.logout();
-  //   this.router.navigate(['./auth/login']);
-  // }
-
 }

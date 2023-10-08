@@ -9,8 +9,6 @@ import { LayoutAuthPageComponent } from './pages/layout-auth-page/layout-auth-pa
 import { LoginFormComponent } from './components/login/login-form.component';
 import { RegisterFormComponent } from './components/register/register-form.component';
 
-
-
 @NgModule({
   declarations: [
     LayoutAuthPageComponent,

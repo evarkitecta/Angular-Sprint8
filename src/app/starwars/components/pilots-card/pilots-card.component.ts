@@ -14,12 +14,6 @@ export class PilotsCardComponent {
 
   constructor(private starwarsService: StarwarsService) { }
 
-  // get pilotsControl() {
-  //   return this.starwarsService.pilotsControl;
-  // }
-  // get pilots() {
-  //   return this.starwarsService.pilots;
-  // }
   get infoPilots() {
     return this.starwarsService.infoPilots;
   }
@@ -27,7 +21,6 @@ export class PilotsCardComponent {
   getPilotID(i: number) {
     const url = this.infoPilots[i].url;
     // console.log("URL desde componente", url)
-    // this.saveInfoPilots(url);
     return this.starwarsService.getPilotID(url);
   }
 

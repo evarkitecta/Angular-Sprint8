@@ -32,20 +32,4 @@ export class EmailValidator implements AsyncValidator {
 
   }
 
-
-
-  // validate(control: AbstractControl<any, any>): Observable<ValidationErrors | null> {
-  //   const email = control.value;
-  //   console.log({ email })
-  //   return of({
-  //     emailTaken: true
-  //   }).pipe(delay(2000))
-  // }
-
-  // return this.http.get<any[]>(`http://localhost:3000/users?email=${email}`)
-  // .pipe(
-  //   map(resp=>{
-  //   return (resp.length === 0) ? null : { emailTaken: true }
-  // }));
-
 }

@@ -5,7 +5,6 @@ import { HomePageComponent } from './starwars/pages/home/home-page.component';
 import { StarshipsPageComponent } from './starwars/pages/starships-page/starships-page.component';
 import { StarshipCardPageComponent } from './starwars/pages/starship-card-page/starship-card-page.component';
 import { AuthGuard } from './auth/guards/auth.guard';
-// import { PublicGuard } from './auth/guards/public.guards';
 
 const routes: Routes = [
   {
@@ -20,8 +19,6 @@ const routes: Routes = [
       {
         path: 'home',
         component: HomePageComponent,
-        // Ya no se carga el componente, se carga el modulo mediante un dynamic import de js nativo
-        // loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
       },
       {
         path: 'starships',
@@ -38,8 +35,6 @@ const routes: Routes = [
       {
         path: 'auth',
         loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule),
-
-        // canMatch: [ PublicGuard ]
       },
 
       {

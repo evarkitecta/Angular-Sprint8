@@ -20,7 +20,6 @@ export class FilmsCardComponent {
   getFilmID(i: number) {
     const url = this.infoFilms[i].url;
     // console.log("URL desde componente", url)
-    // this.saveInfoPilots(url);
     return this.starwarsService.getFilmsID(url);
   }
 }

@@ -1,18 +1,14 @@
 .home-page{
   min-height: 60vh;
   width: 100%;
-  /* padding: 5vh; */
-
 
 }
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  /* filter: invert(100%); */
-  /* background-color: #FADE4B; */
   background-color: rgb(83, 81, 81);
   border-radius: 50%;
-padding: 20px;
-color: yellow !important;
+  padding: 20px;
+  color: yellow !important;
 }
 
 .carousel-control-prev,
