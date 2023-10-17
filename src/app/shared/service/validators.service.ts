@@ -10,7 +10,9 @@ export class ValidatorsService {
 
   // *Creación de objetos de control de errores personalizados
   public cantBeStrider = (control: FormControl): ValidationErrors | null => {
-
+    if (control.value === null || control.value === undefined) {
+      return null;
+    }
     const value: string = control.value.trim().toLowerCase();
 
     if (value === 'strider') {
@@ -24,6 +26,9 @@ export class ValidatorsService {
   }
 
   public nameAndSurname = (control: FormControl): ValidationErrors | null => {
+    if (control.value === null || control.value === undefined) {
+      return null;
+    }
     const value: string = control.value.trim().toLowerCase();
     if (!value.match(this.firstNameAndLastnamePattern)) {
       return {

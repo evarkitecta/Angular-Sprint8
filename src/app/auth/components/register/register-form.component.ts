@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ValidatorsService } from 'src/app/shared/service/validators.service';
 import { EmailValidator } from 'src/app/shared/validators/email-validator.service';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   templateUrl: './register-form.component.html',
   styleUrls: ['./register-form.component.css']
 })
-export class RegisterFormComponent {
+export class RegisterFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private validatorsService: ValidatorsService,
@@ -20,7 +20,9 @@ export class RegisterFormComponent {
     private authService: AuthService,
     private router: Router
   ) { }
-
+  ngOnInit(): void {
+    this.authService.checkAndCreateUsers();
+  }
   // FORMULARIO REACTIVO
   public registerForm: FormGroup = this.fb.group({
     // name: ['', [Validators.required, Validators.pattern(this.validatorsService.firstNameAndLastnamePattern)]],

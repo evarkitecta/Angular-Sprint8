@@ -11,7 +11,7 @@ import { ValidatorsService } from 'src/app/shared/service/validators.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent {
+export class LoginFormComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private validatorsService: ValidatorsService,
@@ -19,7 +19,9 @@ export class LoginFormComponent {
     private fb: FormBuilder
 
   ) { localStorage.removeItem('userLoggedIn'); }
-
+  ngOnInit(): void {
+    this.authService.checkAndCreateUsers();
+  }
 
   public loginError: string = "";
   public submit: boolean = false;
@@ -29,7 +31,6 @@ export class LoginFormComponent {
     password: ['', [Validators.required, Validators.minLength(4)]]
   })
 
-
   onLogin() {
     if (this.loginForm.valid) {
       const isUserRegistered = this.authService.login(this.loginForm.value);
@@ -37,6 +38,10 @@ export class LoginFormComponent {
       if (isUserRegistered) {
         this.router.navigateByUrl("/starships");
         this.loginForm.reset();
+      } else {
+        this.loginError = "Error: usuario y/o password no válidos";
+
+        this.loginForm.markAllAsTouched();
       }
     } else {
       this.loginError = "Error: usuario y/o password no válidos";

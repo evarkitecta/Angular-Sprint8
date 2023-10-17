@@ -11,6 +11,14 @@ export class AuthService {
     password: ""
   };
 
+  checkAndCreateUsers(): void {
+    const users = localStorage.getItem("users");
+
+    if (!users) {
+      localStorage.setItem("users", JSON.stringify([]));
+    }
+  }
+
   get isUserLoggedIn(): Observable<boolean> {
     return this._isUserLoggedIn.asObservable();
   }
